@@ -6,6 +6,11 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+// Root route to verify server is running
+app.get('/', (req, res) => {
+    res.send('hello from server');
+});
+
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
